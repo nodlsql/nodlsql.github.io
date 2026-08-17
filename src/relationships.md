@@ -1,6 +1,7 @@
 # Relationships
 
-Relationship are an efficient alternative to joins. A relationship binds items from a source dataset to target dataset items identified by their primary key values.
+Relationships are an efficient alternative to joins. A relationship binds items from a source dataset to target dataset items identified by their primary key values.
+
 See also [dataset](dataset.md) for relationship schema definitions.
 
 ## Insert
