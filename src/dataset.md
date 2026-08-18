@@ -56,7 +56,9 @@ Describes a dataset and associated indexes, relationships.
 Example:
 ```sql
 DESCRIBE DATASET job;
---
+```
+Describe result:
+```sql
 CREATE DATASET job
     PRIMARY KEY(title.name, title.level);
 ```
@@ -64,7 +66,9 @@ CREATE DATASET job
 To get the list of datasets:
 ```sql
 SELECT name FROM DATASET;
---
+```
+Select result:
+```
 job
 dev
 ```

@@ -19,13 +19,17 @@ SELECT d.tasks.$.* FROM dev d;
 The `*` path element behavior is context dependent. If used at top level it selects all, and includes a relationship summary in the result:
 ```sql
 SELECT * FROM dev WHERE idtag = 'joe';
---
+```
+Select result:
+```sql
 {"greeting":"hi!","idtag":"joe","kudos":[{"eoy":2020},{"eoy":2026}]}
 ```
 
 If `*` is used from within a jsonpath it flattens the json object. For instance from the `$` root element:
 ```sql
 SELECT $.* FROM dev WHERE idtag = 'joe';
---
+```
+Select result:
+```sql
 ["hi!","joe",[{"eoy":2020},{"eoy":2026}]]
 ```

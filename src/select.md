@@ -11,7 +11,9 @@ For instance for a `dev` item with a `wants` element looking for a new job title
 INSERT INTO job VALUES '{"title": {"name": "rust guru", "level": 5}, "vibe": "good"}';
 INSERT INTO dev VALUES '{"greeting":"hi!","idtag":"joe","wants":"rust guru"}';
 SELECT j.title, d.idtag FROM job j, dev d WHERE d.wants = j.title.name;
---
+```
+Select result:
+```sql
 {"level":5,"name":"rust guru"}, joe
 ```
 
@@ -37,10 +39,10 @@ The arithmetic operators `+`, `-`, `*`, `/` are supported for addition, substrac
 
 ## Projection
 
-Single result or comma separated projection results are supported.
+Comma separated projection results are supported.
 
 Example:
 ```sql
-SELECT 1 + (1.50 * 2);
+SELECT 1 + (1.50 * 2), 3.0/4;
 SELECT title, vibe FROM job;
 ```
