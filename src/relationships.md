@@ -50,13 +50,17 @@ The `SELECT *` projection provides a relationship summary.
 With data from the previous examples:
 ```sql
 SELECT * FROM dev;
---
+```
+Select result:
+```sql
 {"greeting":"hi!","idtag":"joe","tasks":"rust guru 5"}
 ```
 
 The same projection without summary:
 ```sql
 SELECT d FROM dev d;
---
+```
+Select result:
+```sql
 {"greeting":"hi!","idtag":"joe"}
 ```
