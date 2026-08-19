@@ -29,15 +29,23 @@ Relationships are based on the primary key of the target dataset.
 
 The following statements create the `tasks` relationship between the source dataset `dev` and the target dataset `job`, based on the `job` primary key:
 ```sql
-CREATE DATASET job PRIMARY KEY(title.name, title.level);
-CREATE DATASET dev PRIMARY KEY(idtag), RELATIONSHIP tasks(job);
+CREATE DATASET job
+  PRIMARY KEY(title.name, title.level)
+  INDEX idx(vibe);
+
+CREATE DATASET dev
+  PRIMARY KEY(idtag),
+  INDEX idx(greeting),
+  RELATIONSHIP errands(job);
 ```
 ## Alter
 
 A dataset schema can be updated via the ALTER statement:
 ```sql
-ALTER DATASET job DROP RELATIONSHIP tasks, ADD RELATIONSHIP errands(job);
-ALTER DATASET dev ADD PRIMARY KEY(idtag), DROP INDEX idx;
+ALTER DATASET dev
+  DROP RELATIONSHIP errands,
+  ADD RELATIONSHIP tasks(job),
+  DROP PRIMARY KEY, DROP INDEX idx;
 ```
 
 ## Drop
