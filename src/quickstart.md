@@ -1,6 +1,6 @@
 # Quick start
 
-At the `sqlcmd` prompt, run the following commands to create and query your first dataset:
+At the [sqlcmd](https://nodls.org/webdemo/) prompt, run the following commands to create and query your first dataset:
 
 ```sql
 CREATE DATASET job;

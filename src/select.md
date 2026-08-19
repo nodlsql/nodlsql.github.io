@@ -23,7 +23,7 @@ The `WHERE` clause predicates filter the result set. Path expressions like a, a.
 Predicates are joined with the `AND` operator that returns an item if all conditions evaluate to true.
 
 ```sql
-SELECT * FROM job WHERE title.level IN (2, 3) AND vibe NOT LIKE '%so';
+SELECT * FROM job WHERE title.level IN (2, 3, 5) AND vibe NOT LIKE 'so%';
 ```
 
 The following comparison operators are supported:
