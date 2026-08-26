@@ -21,7 +21,7 @@ At the [sqlcmd](https://nodls.org/webdemo/) prompt, run the following commands t
 ```sql
 CREATE DATASET job;
 INSERT INTO job VALUES '{"title": {"name": "rust guru", "level": 5}, "vibe": "good"}';
-SELECT * from job WHERE vibe = 'good';
+SELECT * FROM job WHERE vibe = 'good';
 ```
 Select result:
 ```sql

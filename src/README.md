@@ -17,8 +17,6 @@ limitations under the License.
 # nodls
 /ˈnoːd(ə)lz/
 
-## Introduction
-
 The [nodls](https://github.com/nodlsql/nodls_demo) server combines an extended SQL query API with a [jsonb](https://docs.rs/jsonb/latest/jsonb/) data model that promotes fast iterating development and maintenance of DBMS applications.
 
 You can check out the sql api usability with the [sqlcmd](https://nodls.org/webdemo/)  web demonstrator. Refresh with Ctl-R if any disconnect issue.

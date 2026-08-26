@@ -28,7 +28,8 @@ primary key segments of the target dataset, in the order the segments have been 
 For instance with a target dataset `tgtds` set as follows:
 ```sql
 CREATE DATASET job PRIMARY KEY(title.name, title.level);
-INSERT INTO job VALUES '{"title": {"name": "rust guru", "level": 5}, "vibe": "good"}';
+INSERT INTO job VALUES
+  '{"title": {"name": "rust guru", "level": 5}, "vibe": "good"}';
 ```
 
 With a relationship defined on dataset `dev` as:
