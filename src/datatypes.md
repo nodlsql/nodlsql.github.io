@@ -33,7 +33,7 @@ SELECT * FROM dev WHERE idtag = 'joe';
 
 In the result set string scalar values and json objects are returned with no embedding quotes:
 ```sql
-SELECT vibe, title.level, title from job where vibe <> 'so so';
+SELECT vibe, title.level, title FROM job WHERE vibe <> 'so so';
 ```
 Select result:
 ```sql

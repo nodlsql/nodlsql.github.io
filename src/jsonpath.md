@@ -22,7 +22,8 @@ See also [Databend Labs jsonb](https://github.com/databendlabs/jsonb) for suppor
 
 For example to select who has been employee of the year:
 ```sql
-INSERT INTO dev VALUES '{"idtag": "joe", "greeting": "hi!", "kudos": [{"eoy":2020}, {"eoy":2026}]}';
+INSERT INTO dev VALUES
+  '{"idtag": "joe", "greeting": "hi!", "kudos": [{"eoy":2020}, {"eoy":2026}]}';
 SELECT idtag, kudos[0] FROM dev WHERE kudos[0] IS NOT NULL;
 SELECT idtag, kudos[*]?(@.eoy >= 2020) FROM dev WHERE kudos IS NOT NULL;
 ```
