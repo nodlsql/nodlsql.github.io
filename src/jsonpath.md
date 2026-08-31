@@ -38,7 +38,7 @@ The `*` path element behaves differently depending on context. At the top level,
 SELECT * FROM dev WHERE idtag = 'joe';
 ```
 Select result:
-```json
+```
 {"greeting":"hi!","idtag":"joe","kudos":[{"eoy":2020},{"eoy":2026}]}
 ```
 
@@ -47,6 +47,6 @@ If `*` is used within a JSONPath expression, it flattens the JSON object. For in
 SELECT $.* FROM dev WHERE idtag = 'joe';
 ```
 Select result:
-```json
+```
 ["hi!","joe",[{"eoy":2020},{"eoy":2026}]]
 ```
