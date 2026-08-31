@@ -70,7 +70,7 @@ With data from the previous examples:
 SELECT * FROM dev;
 ```
 Select result:
-```json
+```
 {"greeting":"hi!","idtag":"joe","tasks":"rust guru 5"}
 ```
 
@@ -79,6 +79,6 @@ The same projection without summary:
 SELECT d FROM dev d;
 ```
 Select result:
-```json
+```
 {"greeting":"hi!","idtag":"joe"}
 ```

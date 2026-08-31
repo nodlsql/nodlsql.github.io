@@ -19,7 +19,7 @@ limitations under the License.
 
 The [nodls](https://github.com/nodlsql/nodls_demo) server combines an extended SQL query API with a [JSONB](https://docs.rs/jsonb/latest/jsonb/) data model that promotes fast iterating development and maintenance of DBMS applications.
 
-You can try the SQL API usability in the [sqlcmd](https://nodls.org/webdemo/) web demo. Refresh with Ctrl-R if any disconnect issue.
+You can try the SQL API in the [sqlcmd](https://nodls.org/webdemo/) web demo. Refresh with Ctrl-R if any disconnect issue.
 
 It compares against MySQL Server in the following ways:
 

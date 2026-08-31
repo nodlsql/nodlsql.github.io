@@ -26,7 +26,7 @@ CREATE DATASET job;
 ```
 
 Indexes can span multiple segments and support path traversal, such as the `title.name` path for items like:
-```json
+```
 {
   "title": {
     "name": "rust guru",

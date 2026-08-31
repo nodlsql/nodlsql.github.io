@@ -36,7 +36,7 @@ In query results, string scalar values and JSON objects are returned without sur
 SELECT vibe, title.level, title FROM job WHERE vibe <> 'so so';
 ```
 Select result:
-```json
+```
 good, 5, {"level":5,"name":"rust guru"}
 ```
 

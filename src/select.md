@@ -29,7 +29,7 @@ INSERT INTO dev VALUES '{"greeting":"hi!","idtag":"joe","wants":"rust guru"}';
 SELECT j.title, d.idtag FROM job j, dev d WHERE d.wants = j.title.name;
 ```
 Select result:
-```json
+```
 {"level":5,"name":"rust guru"}, joe
 ```
 

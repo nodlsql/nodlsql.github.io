@@ -24,7 +24,7 @@ INSERT INTO job VALUES '{"title": {"name": "rust guru", "level": 5}, "vibe": "go
 SELECT * FROM job WHERE vibe = 'good';
 ```
 Select result:
-```json
+```
 {"title":{"level":5,"name":"rust guru"},"vibe":"good"}
 ```
 
