@@ -16,8 +16,9 @@ limitations under the License.
 
 # Insert
 
-Inserts comma separated values into a dataset. The values should contain valid json objects.
+The `INSERT` statement inserts comma-separated values into a dataset. Each value must be a valid JSON object.
 
+Example:
 ```sql
 INSERT INTO job VALUES
    '{"title": {"name": "rust guru", "level": 5}, "vibe": "good"}',

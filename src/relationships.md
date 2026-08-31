@@ -16,16 +16,15 @@ limitations under the License.
 
 # Relationships
 
-Relationships are an efficient alternative to joins. A relationship binds items from a source dataset to target dataset items identified by their primary key values.
+Relationships provide an efficient alternative to joins. A relationship links items from a source dataset to target dataset items identified by their primary key values.
 
 See also [dataset](dataset.md) for relationship schema definitions.
 
 ## Insert
 
-Inserts a successor in a relationship. The values specified map to existing
-primary key segments of the target dataset, in the order the segments have been declared.
+Inserts a successor in a relationship. The values specified map to the target dataset's existing primary key segments, in the order they are declared.
 
-For instance with a target dataset `tgtds` set as follows:
+For instance with a target dataset `job` set as follows:
 ```sql
 CREATE DATASET job PRIMARY KEY(title.name, title.level);
 INSERT INTO job VALUES
@@ -37,11 +36,13 @@ With a relationship defined on dataset `dev` as:
 CREATE DATASET dev RELATIONSHIP tasks(job);
 ```
 
-You can now add the `job` item as a `tasks` relationship successor to a `dev` dataset item:
+You can now insert a `job` item as a `dev` item successor through the `tasks` relationship:
 ```sql
 INSERT INTO dev VALUES '{"idtag": "joe", "greeting": "hi!"}';
 INSERT INTO dev.tasks VALUES ('rust guru', 5) WHERE idtag = 'joe';
 ```
+
+Many-to-many relationships are supported. In this example a `dev` item can have multiple `tasks` successors. A `job` item can have multiple `dev` item predecessors.
 
 ## Delete
 
@@ -69,7 +70,7 @@ With data from the previous examples:
 SELECT * FROM dev;
 ```
 Select result:
-```sql
+```json
 {"greeting":"hi!","idtag":"joe","tasks":"rust guru 5"}
 ```
 
@@ -78,6 +79,6 @@ The same projection without summary:
 SELECT d FROM dev d;
 ```
 Select result:
-```sql
+```json
 {"greeting":"hi!","idtag":"joe"}
 ```
