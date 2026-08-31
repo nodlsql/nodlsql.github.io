@@ -16,9 +16,10 @@ limitations under the License.
 
 # Update
 
-Update or delete json elements in existing dataset items.
+The `UPDATE` statement updates or removes JSON elements from existing dataset items.
 
+Example:
 ```sql
 UPDATE job SET title.level = 2, vibe = 'better' WHERE vibe <> 'good';
-UPDATE job DELETE vibe, title.level WHERE vibe = 'bad';
+UPDATE job DELETE vibe, title.level WHERE vibe = 'despondent';
 ```

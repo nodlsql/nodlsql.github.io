@@ -16,7 +16,9 @@ limitations under the License.
 
 # Delete
 
-Deletes dataset items:
+The `DELETE` statement permanently removes dataset items:
+
+Example:
 ```sql
 DELETE FROM job WHERE vibe = 'so so';
 ```

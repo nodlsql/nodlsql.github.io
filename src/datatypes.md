@@ -16,7 +16,7 @@ limitations under the License.
 
 # Data types
 
-The standard JSON data types are supported:
+The following standard JSON data types are supported:
 | Data type | Description | Example |
 | -------- | ----------- | ------- |
 | String | Text enclosed in double quotes | "hello" |
@@ -26,17 +26,17 @@ The standard JSON data types are supported:
 | Object | Unordered key-value pairs | {"id": 1} |
 | Array | Ordered list of values | [1, 2, 3]
 
-String constants are enclosed in single quotes when expressed in the query syntax:
+String literals are enclosed in single quotes in query syntax:
 ```sql
 SELECT * FROM dev WHERE idtag = 'joe';
 ```
 
-In the result set string scalar values and json objects are returned with no embedding quotes:
+In query results, string scalar values and JSON objects are returned without surrounding quotes:
 ```sql
 SELECT vibe, title.level, title FROM job WHERE vibe <> 'so so';
 ```
 Select result:
-```sql
+```json
 good, 5, {"level":5,"name":"rust guru"}
 ```
 

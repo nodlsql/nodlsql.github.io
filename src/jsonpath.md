@@ -14,13 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-# Jsonpath
+# JSONPath
 
-Jsonpath expressions can be combined with alias or relationship navigation.
+JSONPath expressions can be combined with alias or relationship navigation.
 
-See also [Databend Labs jsonb](https://github.com/databendlabs/jsonb) for supported jsonpath syntax.
+See the [Databend Labs JSONB](https://github.com/databendlabs/jsonb) project for supported JSONPath syntax.
 
-For example to select who has been employee of the year:
+For example, to find the employee of the year:
 ```sql
 INSERT INTO dev VALUES
   '{"idtag": "joe", "greeting": "hi!", "kudos": [{"eoy":2020}, {"eoy":2026}]}';
@@ -28,25 +28,25 @@ SELECT idtag, kudos[0] FROM dev WHERE kudos[0] IS NOT NULL;
 SELECT idtag, kudos[*]?(@.eoy >= 2020) FROM dev WHERE kudos IS NOT NULL;
 ```
 
-Jsonpath preceded with alias `d` and relationship `tasks`:
+JSONPath preceded with alias `d` and relationship `tasks`:
 ```sql
 SELECT d.tasks.$.* FROM dev d;
 ```
 
-The `*` path element behavior is context dependent. If used at top level it selects all, and includes a relationship summary in the result:
+The `*` path element behaves differently depending on context. At the top level, it returns the full JSON object content.
 ```sql
 SELECT * FROM dev WHERE idtag = 'joe';
 ```
 Select result:
-```sql
+```json
 {"greeting":"hi!","idtag":"joe","kudos":[{"eoy":2020},{"eoy":2026}]}
 ```
 
-If `*` is used from within a jsonpath it flattens the json object. For instance from the `$` root element:
+If `*` is used within a JSONPath expression, it flattens the JSON object. For instance from the `$` root element:
 ```sql
 SELECT $.* FROM dev WHERE idtag = 'joe';
 ```
 Select result:
-```sql
+```json
 ["hi!","joe",[{"eoy":2020},{"eoy":2026}]]
 ```

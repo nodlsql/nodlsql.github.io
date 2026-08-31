@@ -17,11 +17,11 @@ limitations under the License.
 # nodls
 /ˈnoːd(ə)lz/
 
-The [nodls](https://github.com/nodlsql/nodls_demo) server combines an extended SQL query API with a [jsonb](https://docs.rs/jsonb/latest/jsonb/) data model that promotes fast iterating development and maintenance of DBMS applications.
+The [nodls](https://github.com/nodlsql/nodls_demo) server combines an extended SQL query API with a [JSONB](https://docs.rs/jsonb/latest/jsonb/) data model that promotes fast iterating development and maintenance of DBMS applications.
 
-You can check out the sql api usability with the [sqlcmd](https://nodls.org/webdemo/)  web demonstrator. Refresh with Ctl-R if any disconnect issue.
+You can try the SQL API usability in the [sqlcmd](https://nodls.org/webdemo/) web demo. Refresh with Ctrl-R if any disconnect issue.
 
-It compares against MySQL Server as follows:
+It compares against MySQL Server in the following ways:
 
 | Area | nodls | MySQL Server (typical MySQL 8.x) |
 |---|---|---|
@@ -32,7 +32,7 @@ It compares against MySQL Server as follows:
 | Primary keys | Declared at dataset level, supports multi-segment keys over paths (for example a.b, c) | Declared on table columns; composite keys supported |
 | Secondary indexes | Unique and non-unique indexes, including multi-segment/path traversal | B-tree and other index types depending on engine; composite and unique indexes supported |
 | Query language | SQL-like with JSON path-oriented expressions | ANSI-style SQL dialect with MySQL extensions |
-| JSON querying | Native path expressions and jsonpath directly in predicates/projections | JSON functions/operators (for example `JSON_EXTRACT`), generated columns often used for indexed JSON access |
+| JSON querying | Native path expressions and JSONPath directly in predicates/projections | JSON functions/operators (for example `JSON_EXTRACT`), generated columns often used for indexed JSON access |
 | Joins | Supported via multi-dataset `FROM` and predicates | Full join support (`INNER`/`LEFT`/`RIGHT`/`CROSS`, etc.) |
 | Relationship model | Explicit dataset relationships and navigation (direct + inverse), designed as join alternative | Foreign keys enforce integrity; joins used for navigation |
 | Relationship operations | Insert/delete relationship successors with dedicated syntax (for example source.relationship) | No equivalent relationship object syntax; insert/update foreign key column values instead |
