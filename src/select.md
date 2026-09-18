@@ -36,10 +36,18 @@ Select result:
 ## Predicate evaluation
 
 The `WHERE` clause filters the result set using predicates. You can use path expressions like `a`, `a.b`, `a.b.c`, or JSONPath.
+Path expressions can be preceded by relationship navigation.
+
 Predicates joined with the `AND` operator return the items for which all conditions evaluate to true.
 
+Example:
 ```sql
 SELECT * FROM job WHERE title.level IN (2, 3, 5) AND vibe NOT LIKE 'so%';
+```
+
+With relationship `tasks` navigation:
+```sql
+SELECT *, tasks.vibe FROM dev WHERE tasks.title.name = 'rust guru';
 ```
 
 The following comparison operators are supported:
@@ -56,10 +64,30 @@ The arithmetic operators `+`, `-`, `*`, `/` are supported for addition, subtract
 
 ## Projection
 
-Comma-separated projection results are supported.
+The `SELECT` projection specifies a list of comma-separated expressions.
 
 Example:
 ```sql
 SELECT 1 + (1.50 * 2), 3.0/4;
 SELECT title, vibe FROM job;
+```
+
+The `SELECT *` projection provides a relationship summary.
+
+For example with a `tasks` relationship:
+```sql
+SELECT * FROM dev;
+```
+Select result:
+```
+{"greeting":"hi!","idtag":"joe","tasks":"rust guru 5"}
+```
+
+The same projection without summary:
+```sql
+SELECT d FROM dev d;
+```
+Select result:
+```
+{"greeting":"hi!","idtag":"joe"}
 ```

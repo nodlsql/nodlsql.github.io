@@ -16,10 +16,20 @@ limitations under the License.
 
 # Update
 
-The `UPDATE` statement updates or removes JSON elements from existing dataset items.
+The `UPDATE` statement updates or removes JSON elements and relationship elements from existing dataset items.
 
 Example:
 ```sql
-UPDATE job SET title.level = 2, vibe = 'better' WHERE vibe <> 'good';
-UPDATE job DELETE vibe, title.level WHERE vibe = 'despondent';
+UPDATE job
+    SET title.name = 'run for' title.level = 2
+    DELETE vibe
+    WHERE vibe = 'so so';
+```
+
+Relationship example:
+```sql
+UPDATE dev
+    INSERT tasks ('sql defender', 4) errands ('run for', 2)
+    REMOVE tasks ('rust guru', 5)
+    WHERE idtag = 'mary';
 ```
