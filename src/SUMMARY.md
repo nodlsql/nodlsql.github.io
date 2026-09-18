@@ -26,6 +26,5 @@ limitations under the License.
 - [Insert](insert.md)
 - [Update](update.md)
 - [Delete](delete.md)
-- [Relationships](relationships.md)
 - [JSONPath](jsonpath.md)
 - [Data types](datatypes.md)

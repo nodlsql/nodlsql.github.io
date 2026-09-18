@@ -16,7 +16,7 @@ limitations under the License.
 
 # Data types
 
-The following standard JSON data types are supported:
+The standard JSON data types are supported:
 | Data type | Description | Example |
 | -------- | ----------- | ------- |
 | String | Text enclosed in double quotes | "hello" |

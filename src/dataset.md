@@ -16,7 +16,7 @@ limitations under the License.
 
 # Dataset
 
-Datasets store collections of JSON objects. Datasets can include primary key indexes, unique/non-unique indexes and relationships with other datasets.
+Datasets store collections of JSON objects. Datasets can be defined with primary key indexes, unique/non-unique indexes and relationships with other datasets.
 
 ## Create
 
@@ -25,7 +25,7 @@ To create a dataset:
 CREATE DATASET job;
 ```
 
-Indexes can span multiple segments and support path traversal, such as the `title.name` path for items like:
+Indexes can span multiple segments and support path expressions, such as the `title.name` path for items like:
 ```
 {
   "title": {
@@ -37,11 +37,11 @@ Indexes can span multiple segments and support path traversal, such as the `titl
 
 Index definition examples:
 ```sql
-CREATE DATASET pkds PRIMARY KEY(a.b, c);
-CREATE DATASET ixds UNIQUE INDEX uix(a), INDEX dupix(b);
+CREATE DATASET pkds
+    PRIMARY KEY(title.name, title.level)
+    UNIQUE INDEX uix(a)
+    INDEX dupix(b);
 ```
-
-Relationships are defined from the source dataset to the target dataset's primary key.
 
 The following statements create the `errands` relationship between the `dev` source dataset and the `job` target dataset's primary key:
 ```sql
@@ -49,18 +49,17 @@ CREATE DATASET job
   PRIMARY KEY(title.name, title.level);
 
 CREATE DATASET dev
-  PRIMARY KEY(idtag),
-  INDEX gidx(greeting),
   RELATIONSHIP errands(job);
 ```
 ## Alter
 
-A dataset schema can be updated via the ALTER statement:
+A dataset schema can be updated via the `ALTER` statement:
 ```sql
 ALTER DATASET dev
-  DROP RELATIONSHIP errands,
-  ADD RELATIONSHIP tasks(job),
-  DROP PRIMARY KEY, DROP INDEX gidx;
+  DROP RELATIONSHIP errands
+  ADD RELATIONSHIP tasks(job)
+  DROP PRIMARY KEY
+  DROP INDEX gidx;
 ```
 
 ## Drop
